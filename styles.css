@@ -404,7 +404,16 @@ a.instr-relation-tag:focus-visible { background: var(--ink); color: var(--paper)
 .strand { grid-column: 1 / -1; display: block; }
 .strand-pilots { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.4rem, 2.6vw, 2.2rem); margin-top: clamp(1.2rem, 2.2vw, 1.8rem); }
 @media (max-width: 760px) { .strand-pilots { grid-template-columns: 1fr; } }
-.strand-head { max-width: 46rem; }
+.strand-head {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.4rem, 2.6vw, 2.2rem);
+  align-items: start; max-width: none;
+}
+.strand-head .strand-label { grid-column: 1; margin-bottom: 0; padding-top: 0.25rem; }
+.strand-head .strand-desc  { grid-column: 2; }
+@media (max-width: 760px) {
+  .strand-head { grid-template-columns: 1fr; gap: 0.7rem; }
+  .strand-head .strand-label, .strand-head .strand-desc { grid-column: 1; }
+}
 .strand-label {
   font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--c-brand-ink); display: block; margin-bottom: 0.7rem;
