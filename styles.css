@@ -391,7 +391,7 @@ h3.practice-pillar-label { letter-spacing: 0.06em; }
 /* Access face reads like the live face */
 .instr-face--access .instr-face-label { color: var(--accent-ink); }
 
-/* closed status vocabulary: Live · Accepted · Published · In development */
+/* closed status vocabulary: Published · Accepted · Under review · Complete, unpublished · In development. Live marks a running instrument, not an output. */
 .output-status.status-accepted { color: var(--accent-ink); }
 .output-status.status-inprogress { color: var(--ink-mute); }
 
