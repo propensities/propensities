@@ -21,10 +21,12 @@
   --c-marigold: #FFC300;
   --c-jade:     #00A88A;
   --c-lapis:    #2E5CE6;
+  --c-cerise:   #E0006C;
   --c-cinnabar-ink: #C41800;
   --c-marigold-ink: #8A6300;
   --c-jade-ink:     #00654F;
   --c-lapis-ink:    #1638A6;
+  --c-cerise-ink:   #A8004F;
 
   /* ── The one Propensities identity colour — everywhere else ── */
   --c-brand:     #8A3FE8;
@@ -140,7 +142,7 @@ body.nav-on-dark .site-nav:not(.scrolled) { color: #FFFFFF; }
 }
 .hero-nav-link:hover { background: #FFFFFF; color: var(--c-brand); border-color: #FFFFFF; }
 
-/* colour key: tilted stickers previewing the Work index — the ONLY place outside Work the four hues appear */
+/* colour key: tilted stickers previewing the Work index — the ONLY place outside Work the five hues appear */
 .hero-colour-key { display: flex; gap: 0.85rem; flex-wrap: wrap; }
 .key-item {
   font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; text-transform: uppercase;
@@ -149,10 +151,11 @@ body.nav-on-dark .site-nav:not(.scrolled) { color: #FFFFFF; }
   transform: rotate(var(--tilt, 0deg)); transition: transform 0.2s ease;
 }
 .key-item:hover, .key-item:focus-visible { transform: rotate(0deg) scale(1.05); }
-.key-item:nth-child(1) { --accent: var(--c-cinnabar); --on-key: var(--ink); --tilt: -2.5deg; }
-.key-item:nth-child(2) { --accent: var(--c-marigold); --on-key: var(--ink); --tilt: 1.5deg; }
-.key-item:nth-child(3) { --accent: var(--c-jade);     --on-key: var(--ink); --tilt: -1deg; }
-.key-item:nth-child(4) { --accent: var(--c-lapis);    --on-key: #FFFFFF;   --tilt: 2deg; }
+.key--cinnabar { --accent: var(--c-cinnabar); --on-key: var(--ink); --tilt: -2.5deg; }
+.key--cerise   { --accent: var(--c-cerise);   --on-key: #FFFFFF;   --tilt: 1.5deg; }
+.key--marigold { --accent: var(--c-marigold); --on-key: var(--ink); --tilt: -1deg; }
+.key--jade     { --accent: var(--c-jade);     --on-key: var(--ink); --tilt: 2deg; }   /* held for Vital Signals */
+.key--lapis    { --accent: var(--c-lapis);    --on-key: #FFFFFF;   --tilt: -1.5deg; } /* held for the CH line */
 @media (max-width: 600px) { .hero { padding: 7rem var(--gutter) 3rem; } }
 
 .section-label {
@@ -186,6 +189,7 @@ body.nav-on-dark .site-nav:not(.scrolled) { color: #FFFFFF; }
 .instr--marigold { --accent: var(--c-marigold); --accent-ink: var(--c-marigold-ink); --on-accent: var(--ink); }
 .instr--jade     { --accent: var(--c-jade);     --accent-ink: var(--c-jade-ink);     --on-accent: var(--ink); }
 .instr--lapis    { --accent: var(--c-lapis);    --accent-ink: var(--c-lapis-ink);    --on-accent: #FFFFFF; }
+.instr--cerise   { --accent: var(--c-cerise);   --accent-ink: var(--c-cerise-ink);   --on-accent: #FFFFFF; }
 
 .instr-banner { background: var(--accent); color: var(--on-accent); padding: clamp(1.6rem, 3vw, 2.2rem) clamp(1.6rem, 3vw, 2.2rem) clamp(1.3rem, 2.5vw, 1.8rem); }
 .instr-domain {
@@ -395,3 +399,15 @@ h3.practice-pillar-label { letter-spacing: 0.06em; }
 a.instr-relation-tag { transition: background 0.2s ease, color 0.2s ease; }
 a.instr-relation-tag:hover,
 a.instr-relation-tag:focus-visible { background: var(--ink); color: var(--paper); }
+
+/* RSS strand: two pilots of one method, grouped. Spans the stack grid; pilots sit side by side inside it. */
+.strand { grid-column: 1 / -1; display: block; }
+.strand-pilots { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.4rem, 2.6vw, 2.2rem); margin-top: clamp(1.2rem, 2.2vw, 1.8rem); }
+@media (max-width: 760px) { .strand-pilots { grid-template-columns: 1fr; } }
+.strand-head { max-width: 46rem; }
+.strand-label {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--c-brand-ink); display: block; margin-bottom: 0.7rem;
+}
+.strand-desc { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); }
+.strand-desc a { color: var(--c-brand-ink); }
