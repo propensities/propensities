@@ -420,3 +420,75 @@ a.instr-relation-tag:focus-visible { background: var(--ink); color: var(--paper)
 }
 .strand-desc { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); }
 .strand-desc a { color: var(--c-brand-ink); }
+
+/* ── Project pages: one instrument per page. The page takes its instrument's Work hue;
+   the banner is the page's single full-colour field. ── */
+.instrument-link--internal::after { content: none; }
+
+.project-section { padding: clamp(6.5rem, 9vw, 8.5rem) var(--gutter) clamp(3.5rem, 6vw, 6rem); }
+.project-inner { max-width: var(--max-w); margin: 0 auto; }
+.project-back {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-mute); display: inline-block; margin-bottom: 1.2rem;
+}
+.project-back:hover, .project-back:focus-visible { color: var(--ink); }
+
+.project-banner {
+  background: var(--accent); color: var(--on-accent);
+  border: 1px solid var(--ink); border-radius: 3px;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.6rem, 4vw, 3rem);
+}
+.project-name {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: clamp(2.3rem, 5.4vw, 4.4rem); line-height: 1; letter-spacing: -0.03em;
+  color: var(--on-accent); margin-bottom: 1rem;
+}
+.project-question { font-style: italic; font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.45; color: var(--on-accent); max-width: 40ch; margin: 0; }
+
+.project-lead {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 4vw, 3.5rem); align-items: start;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.project-desc { font-size: 1.12rem; line-height: 1.72; color: var(--ink); max-width: 60ch; }
+
+.project-block { margin-top: clamp(2.8rem, 5vw, 4.2rem); }
+.project-block-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding-bottom: 0.9rem; border-bottom: 2px solid var(--ink);
+}
+.project-block-label {
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-ink);
+}
+.project-block-note { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
+
+.doc-list { list-style: none; }
+.doc-row {
+  display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  gap: 0.5rem 1.6rem; align-items: baseline;
+  padding: 1.05rem 0; border-bottom: 1px solid var(--rule);
+}
+.doc-row .output-type { align-self: center; }
+.doc-title { font-family: var(--font-body); font-weight: 500; font-size: 1rem; line-height: 1.4; color: var(--ink); display: block; }
+.doc-meta { font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); display: block; }
+.doc-links { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.doc-link::after { content: none; }
+.doc-link:focus-visible, .project-back:focus-visible, .instrument-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.project-foot {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 4vw, 3.5rem); margin-top: clamp(2.8rem, 5vw, 4.2rem);
+}
+.project-foot .project-block { margin-top: 0; }
+.project-foot p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-top: 1rem; max-width: 62ch; }
+.project-status { margin-top: 1rem; }
+
+@media (max-width: 860px) {
+  .project-lead, .project-foot { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .doc-row { grid-template-columns: 1fr; gap: 0.45rem; }
+  .doc-links { justify-content: flex-start; margin-top: 0.3rem; }
+}
+.project-status .instr-face--relations { display: flex; padding-top: 0.8rem; }
